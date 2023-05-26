@@ -6846,7 +6846,7 @@ int main(int argc, char * argv[])
 			//lopt.frequency[0] = getfrequencies(lopt.freqstring);
 			lopt.frequency[0] = getfrequencies("2192-5825");
 			
-			printf("%f", lopt.frequency[0]);
+			printf("%d", lopt.frequency[0]);
 			if (lopt.frequency[0] == -1)
 			{
 				printf("No valid frequency given.\n");
