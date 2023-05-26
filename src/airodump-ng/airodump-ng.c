@@ -5853,12 +5853,12 @@ static int detect_frequencies(struct wif * wi)
 				i++;
 			}
 			freq = 2482;
-			break;
+			//break;
 		}
 	}
 
 	// again for 5GHz & 6GHz channels
-	start_freq = 5180;
+	start_freq = 4790;
 	end_freq = 5825;
 	for (freq = start_freq; freq <= end_freq; freq += 5)
 	{
@@ -6839,15 +6839,15 @@ int main(int argc, char * argv[])
 			if (fd_raw[i] > fdh) fdh = fd_raw[i];
 		}
 
-		//if (lopt.freqoption == 1 && lopt.freqstring != NULL) // use frequencies
-		if (1==1) // use frequencies
+		if (lopt.freqoption == 1 && lopt.freqstring != NULL) // use frequencies
+		//if (1==1) // use frequencies
 		{
 			detect_frequencies(wi[0]);
-			//lopt.frequency[0] = getfrequencies(lopt.freqstring);
-			lopt.frequency[0] = getfrequencies("2192-5825");
+			lopt.frequency[0] = getfrequencies(lopt.freqstring);
+			//lopt.frequency[0] = getfrequencies("2192-5825");
 			
-			printf("gothere: %d", lopt.frequency[0]);
-			exit(0);
+			//printf("gothere: %d", lopt.frequency[0]);
+			//exit(0);
 			if (lopt.frequency[0] == -1)
 			{
 				printf("No valid frequency given.\n");
