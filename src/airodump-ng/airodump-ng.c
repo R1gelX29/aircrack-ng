@@ -6843,7 +6843,7 @@ int main(int argc, char * argv[])
 		{
 			detect_frequencies(wi[0]);
 			//lopt.frequency[0] = getfrequencies(lopt.freqstring);
-			lopt.frequency[0] = "5180-5825";
+			lopt.frequency[0] = getfrequencies("5180-5825");
 			//printf("%d", wi[0]);
 			if (lopt.frequency[0] == -1)
 			{
