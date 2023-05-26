@@ -5826,8 +5826,8 @@ static int detect_frequencies(struct wif * wi)
 	REQUIRE(wi != NULL);
 
 	int start_freq = 2192;
-	int end_freq = 5825;
-	int max_freq_num = 3633; // should be enough to keep all available channels
+	int end_freq = 2732;
+	int max_freq_num = 2048; // should be enough to keep all available channels
 	int freq = 0, i = 0;
 
 	// printf("Checking available frequencies, this could take few seconds.\n");
@@ -5853,12 +5853,13 @@ static int detect_frequencies(struct wif * wi)
 				i++;
 			}
 			freq = 2482;
+			break;
 		}
 	}
 
 	// again for 5GHz & 6GHz channels
-	start_freq = 4800;
-	end_freq = 7115;
+	start_freq = 5180;
+	end_freq = 5825;
 	for (freq = start_freq; freq <= end_freq; freq += 5)
 	{
 		if (wi_set_freq(wi, freq) == 0)
@@ -6843,8 +6844,9 @@ int main(int argc, char * argv[])
 		{
 			detect_frequencies(wi[0]);
 			//lopt.frequency[0] = getfrequencies(lopt.freqstring);
-			lopt.frequency[0] = getfrequencies("5180-5825");
-			//printf("%d", wi[0]);
+			lopt.frequency[0] = getfrequencies("2192-5825");
+			
+			printf("%f", lopt.frequency[0]);
 			if (lopt.frequency[0] == -1)
 			{
 				printf("No valid frequency given.\n");
