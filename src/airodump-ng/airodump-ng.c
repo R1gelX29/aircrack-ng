@@ -5826,11 +5826,11 @@ static int detect_frequencies(struct wif * wi)
 	REQUIRE(wi != NULL);
 
 	int start_freq = 2192;
-	int end_freq = 2732;
-	int max_freq_num = 2048; // should be enough to keep all available channels
+	int end_freq = 5825;
+	int max_freq_num = 3633; // should be enough to keep all available channels
 	int freq = 0, i = 0;
 
-	printf("Checking available frequencies, this could take few seconds.\n");
+	// printf("Checking available frequencies, this could take few seconds.\n");
 
 	frequencies = (int *) malloc(
 		(max_freq_num + 1) * sizeof(int)); // field for frequencies supported
