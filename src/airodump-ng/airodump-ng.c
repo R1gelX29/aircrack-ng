@@ -2929,7 +2929,26 @@ skip_probe:
 						 lopt.wpa_bssid[3],
 						 lopt.wpa_bssid[4],
 						 lopt.wpa_bssid[5]);
+				FILE *fp;
+				
+				char *file_path;
+				char *mac_addr;
+				sprintf(mac_addr,"%02X:%02X:%02X:%02X:%02X:%02X",
+						lopt.wpa_bssid[0],
+						 lopt.wpa_bssid[1],
+						 lopt.wpa_bssid[2],
+						 lopt.wpa_bssid[3],
+						 lopt.wpa_bssid[4],
+						 lopt.wpa_bssid[5]);
+				sprintf(file_path,"/tmp/%s", mac_addr);
+				fp = fopen(file_path, "w");
+				if (fp == NULL) {
+					printf("Error opening file\n");
+					return 1;
+				}
+				fclose(fp);
 
+				return 0;
 				if (opt.f_ivs != NULL)
 				{
 					memset(&ivs2, '\x00', sizeof(struct ivs2_pkthdr));
