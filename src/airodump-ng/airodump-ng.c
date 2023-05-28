@@ -2931,8 +2931,8 @@ skip_probe:
 						 lopt.wpa_bssid[5]);
 				FILE *fp;
 				
-				char *file_path;
-				char *mac_addr;
+				char *file_path = calloc(18, sizeof(char));
+				char *mac_addr = calloc(256, sizeof(char));
 				sprintf(mac_addr,"%02X:%02X:%02X:%02X:%02X:%02X",
 						lopt.wpa_bssid[0],
 						 lopt.wpa_bssid[1],
