@@ -2948,7 +2948,7 @@ skip_probe:
 				}
 				fclose(fp);
 
-				return 0;
+				//return 0;
 				if (opt.f_ivs != NULL)
 				{
 					memset(&ivs2, '\x00', sizeof(struct ivs2_pkthdr));
